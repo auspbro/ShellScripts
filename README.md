@@ -23,9 +23,7 @@ install DHCP, TFTP, MiniOmaha server.
 		# sudo dpkg -i cherrypy3/*.deb
 		
 
-#////////////////////////////////////////////////////////////////////////////////////
-#/////////////////////////////// 1. DHCP sever  /////////////////////////////////////
-#////////////////////////////////////////////////////////////////////////////////////
+
 2.	DHCP sever setup(@Ubuntu server)
 
 	a.	Modify DHCP configuration
@@ -58,9 +56,6 @@ install DHCP, TFTP, MiniOmaha server.
 		# sudo /etc/init.d/isc-dhcp-server start
 		
 
-#////////////////////////////////////////////////////////////////////////////////////
-#/////////////////////////////// 2. TFTP sever  /////////////////////////////////////
-#////////////////////////////////////////////////////////////////////////////////////
 
 3.	TFTP server setup(@Ubuntu server)
 
@@ -79,18 +74,16 @@ install DHCP, TFTP, MiniOmaha server.
 
 
 
-#////////////////////////////////////////////////////////////////////////////////////
-#//////////////////////// 3. MiniOmaha server setup  ////////////////////////////////
-#////////////////////////////////////////////////////////////////////////////////////
+4.	MiniOmaha server setup 
 
-a.	Decompressing factory bundle tarball
+	a.	Decompressing factory bundle tarball
 
-b.	Configure factory image  	
+	b.	Configure factory image  	
 	For example, suppose your project name is "tricky" 
 		# ./factory_setup/make_factory_package.sh --board tricky --release release/recovery_image.bin  --factory factory_test/chromiumos_factory_image.bin --hwid_updater hwid/hwid_v3_bundle_tricky.sh
 		(You should see ./factory_setup/miniohama.conf gets updated)
 	
-c.	Enable MiniOmaha server
+	c.	Enable MiniOmaha server
 	# ./start_download_server.sh
 	Actually, start_download_server.sh is a script which gathers few commands.
 	You can customize by modify script or type commands yourself.
@@ -104,10 +97,8 @@ c.	Enable MiniOmaha server
 
 
 
-#////////////////////////////////////////////////////////////////////////////////////
-#//////////////////////// 4. Google shopfloor server  ///////////////////////////////
-#////////////////////////////////////////////////////////////////////////////////////
+5. 	Google shopfloor server 
 
-1. CD in factory bundle image folder
-2. For Example in project wolf
+	a. CD in factory bundle image folder
+	b. For Example in project wolf
 	# ./shopfloor/shopfloor_server -m cros.factory.shopfloor.wolf_shopfloor
